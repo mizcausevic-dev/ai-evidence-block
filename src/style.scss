@@ -1,0 +1,143 @@
+/**
+ * Front-end + shared styles for AI Evidence Block.
+ *
+ * Conservative and theme-friendly. Brand fonts are referenced only as font-stack
+ * preferences (used if the theme/OS already provides them) — never fetched, so
+ * the plugin makes zero external requests.
+ */
+
+// state => (color, tint, underline-style)
+$aeb-states: (
+	verified:      (#0F5132, #E6EFE9, solid),
+	cited:         (#1E3A8A, #E5EAF4, solid),
+	ai-assisted:   (#B45309, #F8EEDA, dashed),
+	ai-generated:  (#B45309, #F8EEDA, dashed),
+	auto-detected: (#B45309, #F8EEDA, dotted),
+	disputed:      (#9F1239, #F4E1E6, wavy),
+);
+
+$aeb-ink: #111418;
+$aeb-slate: #4b5563;
+$aeb-hairline: rgba(17, 20, 24, 0.12);
+$aeb-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+$aeb-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+/* ── The evidence card (wrapping block) ─────────────────────────────────── */
+.aeb-card {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.5rem 0.75rem;
+	margin-top: 1rem;
+	padding-top: 0.75rem;
+	border-top: 1px solid $aeb-hairline;
+	font-family: $aeb-sans;
+	font-size: 0.8125rem;
+	line-height: 1.4;
+	color: $aeb-slate;
+}
+
+.aeb-pill {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.375rem;
+	padding: 0.25rem 0.5rem 0.25rem 0.4375rem;
+	border: 1px solid currentColor;
+	border-radius: 3px;
+	font-family: $aeb-mono;
+	font-size: 0.6875rem;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	line-height: 1;
+	white-space: nowrap;
+}
+
+.aeb-pill__icon {
+	flex-shrink: 0;
+}
+
+.aeb-card__meta {
+	color: $aeb-slate;
+}
+
+.aeb-card__notes {
+	flex-basis: 100%;
+	color: $aeb-ink;
+	font-style: italic;
+}
+
+.aeb-card__source,
+.aeb-card__spec {
+	font-family: $aeb-mono;
+	font-size: 0.6875rem;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	text-decoration: none;
+	border-bottom: 1px solid currentColor;
+}
+
+.aeb-card__spec {
+	margin-left: auto;
+	color: $aeb-slate;
+}
+
+/* ── Inline provenance marks ────────────────────────────────────────────── */
+mark.aeb-mark {
+	background: transparent;
+	color: inherit;
+	text-decoration-line: underline;
+	text-decoration-thickness: 2px;
+	text-underline-offset: 3px;
+	border-radius: 2px;
+	padding: 0 0.05em;
+	cursor: help;
+	transition: background-color 120ms ease;
+}
+
+mark.aeb-mark:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 2px;
+}
+
+/* ── Per-state colors ───────────────────────────────────────────────────── */
+@each $state, $tokens in $aeb-states {
+	$color: nth($tokens, 1);
+	$tint: nth($tokens, 2);
+	$style: nth($tokens, 3);
+
+	.aeb-pill--#{$state} {
+		color: $color;
+		background: $tint;
+	}
+
+	mark.aeb-mark[data-aeb-state="#{$state}"] {
+		text-decoration-style: $style;
+		text-decoration-color: $color;
+
+		&:hover,
+		&:focus-visible {
+			background: $tint;
+		}
+	}
+}
+
+/* ── Front-end popover (progressive enhancement) ────────────────────────── */
+.aeb-tip {
+	position: absolute;
+	z-index: 9999;
+	max-width: 320px;
+	padding: 0.5rem 0.625rem;
+	background: #111418;
+	color: #f5f1e8;
+	font-family: $aeb-sans;
+	font-size: 0.75rem;
+	line-height: 1.45;
+	border-radius: 3px;
+	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+	pointer-events: none;
+}
+
+.aeb-tip[hidden] {
+	display: none;
+}

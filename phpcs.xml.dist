@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<ruleset name="AI Evidence Block">
+	<description>WordPress coding standards for the AI Evidence Block plugin.</description>
+
+	<!-- What to scan. -->
+	<file>.</file>
+	<arg name="extensions" value="php"/>
+	<arg name="basepath" value="."/>
+	<arg name="parallel" value="8"/>
+	<arg value="ps"/><!-- Show progress and sniff codes. -->
+
+	<!-- What to ignore. -->
+	<exclude-pattern>/build/*</exclude-pattern>
+	<exclude-pattern>/node_modules/*</exclude-pattern>
+	<exclude-pattern>/vendor/*</exclude-pattern>
+
+	<!-- WordPress-Extra is the ruleset `wp plugin check` mirrors most closely. -->
+	<rule ref="WordPress-Extra"/>
+	<rule ref="WordPress-Docs"/>
+
+	<!-- Verify code targets our minimum PHP and WP versions. -->
+	<config name="testVersion" value="7.4-"/>
+	<config name="minimum_wp_version" value="6.6"/>
+
+	<!-- Enforce a single, unique text domain. -->
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="ai-evidence-block"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!-- Enforce our global prefixes (functions, hooks, options, constants). -->
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="kgaeb"/>
+				<element value="KineticGain\AIEvidence"/>
+			</property>
+		</properties>
+	</rule>
+</ruleset>

@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "kineticgain/ai-evidence",
+	"version": "1.0.0",
+	"title": "AI Evidence",
+	"category": "text",
+	"icon": "shield-alt",
+	"description": "Wrap a section and mark its AI provenance — model, reviewer, confidence, source. Renders an evidence card plus schema.org JSON-LD and a verifiable AI Evidence Format object.",
+	"keywords": [ "ai", "provenance", "disclosure", "evidence", "schema", "json-ld" ],
+	"textdomain": "ai-evidence-block",
+	"attributes": {
+		"state": { "type": "string", "default": "verified" },
+		"model": { "type": "string", "default": "" },
+		"customModel": { "type": "string", "default": "" },
+		"reviewer": { "type": "string", "default": "" },
+		"date": { "type": "string", "default": "" },
+		"confidence": { "type": "string", "default": "unrated" },
+		"source": { "type": "string", "default": "" },
+		"notes": { "type": "string", "default": "" }
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"spacing": { "margin": true, "padding": true },
+		"color": { "background": true, "text": false }
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

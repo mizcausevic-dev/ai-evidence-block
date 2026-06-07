@@ -1,0 +1,39 @@
+# A .distignore tells `wp-scripts plugin-zip` what to leave OUT of the
+# production plugin zip. Everything NOT listed here is shipped.
+#
+# Note: the block registers from /build (compiled by `npm run build`), so the
+# uncompiled /src directory is intentionally excluded from the distributed zip.
+
+# Version control & CI
+/.git
+/.github
+/.gitignore
+/.gitattributes
+
+# WordPress.org assets (screenshots/banners live here, not in the zip)
+/.wordpress-org
+
+# Dependencies
+/node_modules
+/vendor
+
+# Source — compiled into /build, which is what ships
+/src
+
+# Dev config & meta
+/.editorconfig
+/.distignore
+/.wp-env.json
+/.wp-env.override.json
+/composer.json
+/composer.lock
+/package.json
+/package-lock.json
+/phpcs.xml.dist
+/README.md
+
+# Artifacts & OS cruft
+/*.zip
+/*.log
+.DS_Store
+Thumbs.db

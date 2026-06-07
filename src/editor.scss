@@ -1,0 +1,85 @@
+/**
+ * Editor-only styles: the provenance state picker, the inline-format popover,
+ * and small sidebar affordances.
+ */
+
+$aeb-slate: #4b5563;
+$aeb-hairline: #dcdcde;
+$aeb-evidence: #0f5132;
+
+.aeb-fields {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+/* ── State picker (2-column radiogroup) ─────────────────────────────────── */
+.aeb-state-picker {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 6px;
+}
+
+.aeb-state-picker__option {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 8px;
+	background: #fff;
+	border: 1px solid $aeb-hairline;
+	border-radius: 2px;
+	font-size: 12px;
+	text-align: left;
+	color: #1e1e1e;
+	cursor: pointer;
+
+	&:hover {
+		border-color: #949494;
+	}
+
+	&.is-selected {
+		border: 1.5px solid var(--aeb-state-color, #{$aeb-evidence});
+		font-weight: 600;
+		color: var(--aeb-state-color, #{$aeb-evidence});
+		box-shadow: inset 0 0 0 1px var(--aeb-state-color, #{$aeb-evidence});
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--wp-admin-theme-color, #007cba);
+		outline-offset: 1px;
+	}
+}
+
+.aeb-state-picker__icon {
+	display: inline-flex;
+	flex-shrink: 0;
+}
+
+.aeb-state-picker__label {
+	line-height: 1.2;
+}
+
+/* ── Inspector spec note ────────────────────────────────────────────────── */
+.aeb-spec-note {
+	margin: 12px 0 4px;
+	color: $aeb-slate;
+	font-size: 12px;
+	font-style: italic;
+}
+
+/* ── Inline-format popover ──────────────────────────────────────────────── */
+.aeb-format-popover .aeb-format-popover__inner {
+	width: 300px;
+	max-width: 90vw;
+	padding: 16px;
+	box-sizing: border-box;
+}
+
+.aeb-format-popover__actions {
+	margin-top: 14px;
+}
+
+/* ── In-editor inline mark preview ──────────────────────────────────────── */
+.block-editor-rich-text__editable mark.aeb-mark {
+	cursor: text;
+}

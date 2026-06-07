@@ -1,0 +1,40 @@
+{
+  "name": "ai-evidence-block",
+  "version": "1.0.0",
+  "description": "A Gutenberg block and inline format for marking the AI provenance of published content — the WordPress reference implementation of the AI Evidence Format (Kinetic Gain Protocol Suite).",
+  "author": "Kinetic Gain (Miz Causevic)",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "wordpress",
+    "gutenberg",
+    "block",
+    "ai",
+    "provenance",
+    "disclosure",
+    "schema",
+    "json-ld"
+  ],
+  "homepage": "https://kineticgain.com",
+  "private": true,
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start",
+    "format": "wp-scripts format",
+    "lint:js": "wp-scripts lint-js",
+    "lint:css": "wp-scripts lint-style",
+    "plugin-zip": "wp-scripts plugin-zip",
+    "packages-update": "wp-scripts packages-update"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^30.0.0"
+  },
+  "files": [
+    "ai-evidence-block.php",
+    "uninstall.php",
+    "readme.txt",
+    "LICENSE",
+    "includes/**",
+    "build/**",
+    "languages/**"
+  ]
+}
