@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       AI Evidence Block
- * Plugin URI:        https://kineticgain.com/ai-evidence-block/
+ * Plugin URI:        https://github.com/mizcausevic-dev/ai-evidence-block
  * Description:       Mark the AI provenance of any claim you publish — model, reviewer, confidence, source — and render it as a clean evidence card, namespaced data attributes, schema.org JSON-LD, and a verifiable AI Evidence Format object. The WordPress reference implementation of the AI Evidence Format (Kinetic Gain Protocol Suite).
  * Requires at least: 6.6
  * Requires PHP:      7.4

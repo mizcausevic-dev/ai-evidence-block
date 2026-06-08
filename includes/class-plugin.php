@@ -47,7 +47,6 @@ class Plugin {
 	 */
 	public function init() {
 		add_action( 'init', array( $this, 'register_block' ) );
-		add_action( 'init', array( $this, 'load_textdomain' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'localize_editor' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend' ) );
 
@@ -71,15 +70,6 @@ class Plugin {
 		if ( is_dir( $build ) && is_readable( $build . '/block.json' ) ) {
 			register_block_type( $build );
 		}
-	}
-
-	/**
-	 * Load translations.
-	 *
-	 * @return void
-	 */
-	public function load_textdomain() {
-		load_plugin_textdomain( 'ai-evidence-block', false, dirname( plugin_basename( FILE ) ) . '/languages' );
 	}
 
 	/**

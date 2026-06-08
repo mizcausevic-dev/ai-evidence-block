@@ -1,14 +1,14 @@
 === AI Evidence Block ===
 Contributors: mizcausevic
-Tags: ai, provenance, gutenberg, structured-data, ai-disclosure
+Tags: ai, provenance, gutenberg, schema, ai-disclosure
 Requires at least: 6.6
-Tested up to: 6.7
+Tested up to: 7.0
 Requires PHP: 7.4
 Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Mark the AI provenance of any claim — model, reviewer, confidence, source — as an evidence card, schema.org JSON-LD, and a verifiable evidence object.
+Mark AI provenance per claim — model, reviewer, confidence, source — as an evidence card, schema.org JSON-LD, and a verifiable evidence object.
 
 == Description ==
 
@@ -85,9 +85,8 @@ Yes. The state → `synthesis_role` and state → IPTC DigitalSourceType mapping
 
 1. The block in the Gutenberg inserter.
 2. The block settings sidebar — provenance state, model, reviewer, confidence, source, and notes.
-3. The inline “AI Evidence mark” format and its popover.
-4. The published post — the evidence card and an inline marked claim.
-5. The reader hovers a marked claim and sees its full provenance.
+3. The published post — the evidence card and an inline marked claim.
+4. The reader hovers a marked claim and sees its full provenance.
 
 == Changelog ==
 
